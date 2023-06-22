@@ -24,7 +24,7 @@ export const ContextProvider = (props) =>{
 
     const filter=(num)=>{
        
-        const newTable = table.filter(({id})=> id == num);
+        const newTable = table.filter(({id})=> id === num);
         setTable(newTable)
      }
 
