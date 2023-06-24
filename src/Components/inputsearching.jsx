@@ -4,32 +4,24 @@
 
 
 import { useContext } from "react";
-import {useState} from "react";
+
 import { placeContext } from "./contextProvider";
 
 
 
 export const InputSearching = () =>{
-  const {filter,update}= useContext(placeContext);
-  const [newSearch, setNewTask]= useState("");
+  const {newSearch,setNewTask}= useContext(placeContext);
+  
 
 
 const changemet= (event)=>{
- update()
+
   setNewTask(event.target.value)
 }
 
 const handle = (e) =>{
   e.preventDefault()
-  const num= Number(newSearch)
-  
-  if (num >= 0) {
-    return  filter(num)
-  }
-  else{
-    alert('nombre seulement')
-  }
- 
+
 }
 
     return(
@@ -41,7 +33,7 @@ const handle = (e) =>{
           type="text"
           id="item"
         />
-      <button  className=" gtr">Search</button>
+    
     </form>
     )
 } 

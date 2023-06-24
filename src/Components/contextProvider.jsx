@@ -6,6 +6,7 @@ export const ContextProvider = (props) =>{
 
 
     const [table, setTable]= useState([]);
+    const [newSearch, setNewTask]= useState("");
     console.log(table);
 
     useEffect(()=>{
@@ -15,25 +16,12 @@ export const ContextProvider = (props) =>{
         })
 
     },[])
-    const update= ()=>{
-        fetch("https://jsonplaceholder.typicode.com/todos/").then((response)=>response.json()).then((data)=>{
-            
-        setTable(data)
-    })
-    }
-
-    const filter=(num)=>{
-       
-        const newTable = table.filter(({id})=> id === num);
-        setTable(newTable)
-     }
-
 
 
     return(
         <>
         <h1 className="display-1 text-danger"> Placeholder</h1>
-        <placeContext.Provider value={{table,filter,update}}>
+        <placeContext.Provider value={{table,newSearch,setNewTask}}>
 
             {props.children}
 
